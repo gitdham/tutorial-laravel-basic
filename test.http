@@ -1,0 +1,85 @@
+@baseUrl = http://127.0.0.1:8000
+
+POST {{baseUrl}}/input/hello HTTP/1.1
+Content-Type: application/json
+
+{
+  "name":"Idham"
+}
+###
+GET {{baseUrl}}/input/hello?name=Idham HTTP/1.1
+###
+POST {{baseUrl}}/input/hello/first HTTP/1.1
+Content-Type: application/json
+
+{
+  "name":{
+    "first":"Idham",
+    "last":"Adzani"
+  }
+}
+###
+POST {{baseUrl}}/input/hello/input?test=true HTTP/1.1
+Content-Type: application/json
+
+{
+  "name":{
+    "first":"Idham",
+    "last":"Adzani"
+  },
+  "age": 28,
+  "sex": "Male",
+  "address": {
+    "city": "Bandung",
+    "country": "Indonesia"
+  },
+  "hobbies": ["coding", "reading", "sparing"]
+}
+###
+POST {{baseUrl}}/input/hello/array HTTP/1.1
+Content-Type: application/json
+
+{
+  "products":[
+    {
+      "name":"Apple Mac Book Pro",
+      "price":"5999999"
+    },
+    {
+      "name":"Samsung Galaxy S",
+      "price":"2599999"
+    }
+  ]
+}
+###
+POST {{baseUrl}}/input/type HTTP/1.1
+Content-Type: application/json
+
+{
+  "name": "Budi",
+  "married": "true",
+  "birth_date": "1994-03-23"
+}
+###
+POST {{baseUrl}}/input/filter/only HTTP/1.1
+Content-Type: application/json
+
+{
+  "name": {
+    "first": "Idham",
+    "middle": "Nur",
+    "last": "Adzani"
+  }
+}
+###
+POST {{baseUrl}}/input/filter/except HTTP/1.1
+Content-Type: application/json
+
+{
+  "name": {
+    "first": "Idham",
+    "middle": "Nur",
+    "last": "Adzani"
+  },
+  "admin": "true"
+}
